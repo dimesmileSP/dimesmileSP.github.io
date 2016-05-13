@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Личный сайт студента GeekBrains</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+ function changePlayer(playerNum) {
+      if (playerNum==1)
+          return 2;
+        else 
+            return 1;
+    }
+
+  function startGame(){
+    
+    var answer = Math.round(Math.random()* 10 );
+    var tryCount1 = 0;
+    var tryCount2 = 0;
+    var playerNum = 1;
+    var isWin = false;
+    while (true) {
+      var userAnswer = prompt(`Ход ` + playerNum + ` игрока. Я загадал число от 1 до 10. Попробуй угадать: (для выхода нажмите W)`);
+      if (userAnswer==`w`|| userAnswer==`W`|| userAnswer==`ц`|| userAnswer==`Ц`) 
+          break;
+      if (playerNum == 1) 
+        tryCount1++;
+        else
+          tryCount2++;
+      userAnswer=parseInt(userAnswer)
+      if ((userAnswer>=1)&&(userAnswer<=10)) {
+      if (answer==userAnswer) {
+        alert(`Верно!!! Поздравляю!`);
+        isWin = true;
+        break;
+      } else if(answer>userAnswer) {
+                  alert (`Не угадал...Твоё число слишком маленькое.`);
+              } else {
+                  alert (`Не угадал...Твоё число слишком большое.`);
+                }
+          } else if (playerNum==1){
+              alert(`Жаль, но Вы не приблизились к правде ни на шаг.`);
+              tryCount1--;
+              } else {
+                alert(`Жаль, но Вы не приблизились к правде ни на шаг.`);
+                tryCount2--;
+                }
+      playerNum = changePlayer(playerNum);
+    }
+    if (isWin) {
+      if (playerNum==1) 
+        alert (`Победу одержал игрок ` + playerNum + ` сделав ` + tryCount1 + ` ходов!`);
+        else
+          alert (`Победу одержал игрок ` + playerNum + ` сделав ` + tryCount2 + ` ходов!`);
+    }      
+      else if (playerNum==1)
+        alert(`Спасибо за игру! В погоне за Удачей вы совершили ` + tryCount1 + ` попыток.`);
+          else
+            alert(`Спасибо за игру! В погоне за Удачей вы совершили ` + tryCount2 + ` попыток.`);
+  }
+
+</script>>
+
+
+</head>
+<body>
+
+<div id="tooplate_body_wrapper" />
+<div id="tooplate_wrapper" />
+<div id="tooplate_header">
+  <div id="site_title">
+    <h1><a href="http://geekbrains.ru">GeekBrains</a></h1>
+  </div>
+  <div id="tooplate_menu">
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="puzzle.html">Загадки</a></li>
+      <li><a href="guess.html">Угадайка</a></li>
+      <li><a href="guess-2.html">Угадайка мультиплеер</a></li>
+    </ul>     
+  </div>
+</div>
+    
+<div id="content_box">
+    
+  <div id="content_title">
+    <h2>Игра "Угадайка для двух игроков"</h2>
+  </div>
+  <div id="content">
+    
+    <p><b>Цель игры</b> - за наименьшее количество попыток отгадать число от 1 до 10, которое я загадал.<p/>
+    <p>Игроки ходят поочерёдно. Кто из вас первый начнёт игру - решать вам. Колоичество попыток неограничено. </p>
+    </br>
+    <p>Да прибудет с Вами фарта!</p>
+    
+    <input type="button" value="Начать игру" onClick="startGame()"/>
+
+  </div>
+           
+    <div id="tooplate_footer">    
+        Copyright © 2016 <a href="http://geekbrains.ru">GeekBrains</a>
+    </div>
+    
+</div> <!-- end of warpper -->
+
+</body>
+</html>
+<meta charset=`utf-8`>
+<script type="text/javascript">
+
+    
+
+</script>
